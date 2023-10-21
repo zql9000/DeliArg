@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB2BDF79-5814-4726-A764-9DF259F1EB4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliArg.WebApi", "src\DeliArg.WebApi\DeliArg.WebApi.csproj", "{C3A3EA76-36DA-449C-A04B-C77C860612AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C1D8AC51-F26C-4CF8-81FF-9976E0456C60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3A3EA76-36DA-449C-A04B-C77C860612AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A3EA76-36DA-449C-A04B-C77C860612AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A3EA76-36DA-449C-A04B-C77C860612AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A3EA76-36DA-449C-A04B-C77C860612AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3A3EA76-36DA-449C-A04B-C77C860612AB} = {CB2BDF79-5814-4726-A764-9DF259F1EB4E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7BE4E4E-900D-4A74-AFC1-24584D536059}
+	EndGlobalSection
+EndGlobal
