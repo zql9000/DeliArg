@@ -1,5 +1,5 @@
 # DeliArg
-This solution will allow DeliArg to manage the stock of its products in various warehouses and stores, including supplier orders.
+This solution will allow DeliArg to manage the stock of its products in various warehouses and stores, including supplier orders. DeliArg is a non-existent company selling foreign grocery products.
 
 ## **About the solution**
 The backend is in a single project, to keep the configurations simple and focus on the use of Blazor as a frontend technology.
@@ -86,6 +86,7 @@ Order {
     int Id PK
     int SupplierId FK
     int OrderStatusId FK
+    int WarehouseId FK
     float TotalAmount
     date Date
 }
