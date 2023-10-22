@@ -28,6 +28,8 @@ namespace DeliArg.WebApi
 
             builder.Services.AddScoped<ISupplierService, SupplierService>();
             builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+            builder.Services.AddScoped<IOrderStatusService, OrderStatusService>();
+            builder.Services.AddScoped<IOrderStatusRepository, OrderStatusRepository>();
 
             var app = builder.Build();
 
