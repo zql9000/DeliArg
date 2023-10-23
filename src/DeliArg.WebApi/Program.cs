@@ -31,6 +31,9 @@ namespace DeliArg.WebApi
             builder.Services.AddScoped<IOrderStatusService, OrderStatusService>();
             builder.Services.AddScoped<IOrderStatusRepository, OrderStatusRepository>();
 
+            builder.Services.AddScoped<IShipmentReceiptStatusService, ShipmentReceiptStatusService>();
+            builder.Services.AddScoped<IShipmentReceiptStatusRepository, ShipmentReceiptStatusRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
