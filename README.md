@@ -28,11 +28,11 @@ Development tools, frameworks and libraries used:
 - Swagger
 - AutoMapper
 - Entity Framework Core
-- Postman
+- Mermaid
 
 ## **Analysis and development process**
 
-The user stories that I developed, in addition to the CRUD of the entities, are:
+The user stories that I developed, in addition to the generic CRUD for entities, are:
 
 - ~~As a store manager, I want to order products from warehouses.~~
 - ~~As a warehouse manager, I want to order products to suppliers.~~
