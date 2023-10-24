@@ -10,4 +10,5 @@ public class DeliArgDbContext : DbContext
     public DbSet<Supplier> Suppliers { get; set; }
     public DbSet<OrderStatus> OrderStatuses { get; set; }
     public DbSet<ShipmentReceiptStatus> ShipmentReceiptStatuses { get; set; }
+    public DbSet<Product> Products { get; set; }
 }
