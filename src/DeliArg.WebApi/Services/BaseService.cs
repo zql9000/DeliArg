@@ -45,7 +45,13 @@ public class BaseService<TModel, TRepository, TRequest, TResponse>
         TModel entityToInsert = mapper.Map<TRequest, TModel>(entity);
         TModel entityInserted = await repository.Insert(entityToInsert);
         await unitOfWork.CompleteAsync();
-        TResponse response = mapper.Map<TModel, TResponse>(entityInserted);
+        TResponse? dbEntity = await GetById(entityInserted.Id);
+        TResponse response;
+        if (dbEntity is null)
+            response = mapper.Map<TModel, TResponse>(entityInserted);
+        else
+            response = dbEntity;
+
         return response;
     }
 
