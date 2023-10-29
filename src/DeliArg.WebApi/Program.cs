@@ -38,6 +38,8 @@ public class Program
         builder.Services.AddScoped<IStoreRepository, StoreRepository>();
         builder.Services.AddScoped<IWarehouseService, WarehouseService>();
         builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+        builder.Services.AddScoped<IStoreStockService, StoreStockService>();
+        builder.Services.AddScoped<IStoreStockRepository, StoreStockRepository>();
 
         var app = builder.Build();
 
