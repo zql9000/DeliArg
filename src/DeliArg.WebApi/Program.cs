@@ -42,6 +42,8 @@ public class Program
         builder.Services.AddScoped<IStoreStockRepository, StoreStockRepository>();
         builder.Services.AddScoped<IShipmentReceiptService, ShipmentReceiptService>();
         builder.Services.AddScoped<IShipmentReceiptRepository, ShipmentReceiptRepository>();
+        builder.Services.AddScoped<IOrderService, OrderService>();
+        builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
         var app = builder.Build();
 
