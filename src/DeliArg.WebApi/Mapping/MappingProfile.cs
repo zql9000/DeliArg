@@ -22,5 +22,9 @@ public class MappingProfile : Profile
         CreateMap<WarehouseRequestDto, Warehouse>();
         CreateMap<StoreStock, StoreStockResponseDto>();
         CreateMap<StoreStockRequestDto, StoreStock>();
+        CreateMap<ShipmentReceipt, ShipmentReceiptResponseDto>();
+        CreateMap<ShipmentReceiptRequestDto, ShipmentReceipt>();
+        CreateMap<ShipmentReceiptItem, ShipmentReceiptItemResponseDto>();
+        CreateMap<ShipmentReceiptItemRequestDto, ShipmentReceiptItem>();
     }
 }
