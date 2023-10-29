@@ -18,5 +18,7 @@ public class MappingProfile : Profile
         CreateMap<ProductRequestDto, Product>();
         CreateMap<Store, StoreResponseDto>();
         CreateMap<StoreRequestDto, Store>();
+        CreateMap<Warehouse, WarehouseResponseDto>();
+        CreateMap<WarehouseRequestDto, Warehouse>();
     }
 }
