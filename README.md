@@ -3,6 +3,7 @@ This solution will allow DeliArg to manage the stock of its products in various 
 
 ## **About the solution**
 The backend is in a single project, to keep the configurations simple and focus on the use of Blazor as a frontend technology.
+Additionally, I used a generic repository, a generic service and a generic controller to evaluate the pros and cons of each.
 When developing the solution I took into account the following concepts:
 
 - SOLID principles
@@ -50,8 +51,8 @@ OrderItem }|--|| Product : has
 Warehouse ||--|{ ShipmentReceipt : has
 Product ||--|{ ShipmentReceiptItem : has
 ShipmentReceipt ||--|{ ShipmentReceiptItem : contains
-Product ||--|{ ProductStore : has
-ProductStore }|--|| Store : has
+Product ||--|{ StoreStock : has
+StoreStock }|--|| Store : has
 Store ||--|{ ShipmentReceipt : has
 ShipmentReceipt }|--|| ShipmentReceiptStatus : has
 
@@ -74,7 +75,7 @@ Product {
     string PictureUrl
 }
 
-ProductStore {
+StoreStock {
     int Id PK
     int ProductId FK
     int StoreId FK
