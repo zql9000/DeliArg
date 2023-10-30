@@ -1,0 +1,55 @@
+﻿@inject NavigationManager navigationmanager
+
+<h1 class="head">DeliArg</h1>
+<ul>
+    <li>
+        <FluentAnchor Href="Order" Appearance=@SetAppearance("Order")>Order</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="ShipmentReceipt" Appearance=@SetAppearance("ShipmentReceipt")>Shipment Receipt</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="StoreStock" Appearance=@SetAppearance("StoreStock")>Store Stock</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="Product" Appearance=@SetAppearance("Product")>Product</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="Supplier" Appearance=@SetAppearance("Supplier")>Supplier</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="Warehouse" Appearance=@SetAppearance("Warehouse")>Warehouse</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="Store" Appearance=@SetAppearance("Store")>Store</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="OrderStatus" Appearance=@SetAppearance("OrderStatus")>Order Status</FluentAnchor>
+    </li>
+    <li>
+        <FluentAnchor Href="ShipmentReceiptStatus" Appearance=@SetAppearance("ShipmentReceiptStatus")>Shipment Receipt Status</FluentAnchor>
+    </li>
+</ul>
+
+@code {
+    private string? target;
+
+    protected override void OnInitialized()
+    {
+        navigationmanager.LocationChanged += LocationChanged;
+        base.OnInitialized();
+    }
+
+    private void LocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        Uri uri = new Uri(e.Location);
+        if (uri.Segments.Count() > 1)
+            target = uri.Segments[1];
+        else
+            target = "";
+        StateHasChanged();
+    }
+
+    private Appearance SetAppearance(string location) => (string.Equals(location, target, StringComparison.OrdinalIgnoreCase)) ? Appearance.Neutral : Appearance.Stealth;
+
+}
