@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliArg.WebApi", "src\DeliA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C1D8AC51-F26C-4CF8-81FF-9976E0456C60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliArg.Wasm", "src\DeliArg.Wasm\DeliArg.Wasm.csproj", "{4EDF09B3-1251-4C08-906F-B961EEBEBE8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliArg.Wasm", "src\DeliArg.Wasm\DeliArg.Wasm.csproj", "{4EDF09B3-1251-4C08-906F-B961EEBEBE8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
