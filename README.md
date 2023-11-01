@@ -14,6 +14,7 @@ When developing the solution I took into account the following concepts:
    - Dependency inversion principle
 - DRY (Don't Repeat Yourself)
 - YAGNI (You Aren't Gonna Need It)
+- Fluent UI
 
 I also used the following methodologies:
 
@@ -26,6 +27,7 @@ Development tools, frameworks and libraries used:
 
 - Visual Studio 2022
 - .NET 7 (WebApi and Blazor)
+- Fluent UI Blazor
 - Swagger
 - AutoMapper
 - Entity Framework Core
