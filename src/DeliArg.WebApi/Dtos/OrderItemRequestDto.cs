@@ -1,6 +1,4 @@
-﻿using DeliArg.WebApi.Dtos;
-
-namespace DeliArg.WebApi.Models;
+﻿namespace DeliArg.WebApi.Dtos;
 
 public class OrderItemRequestDto : BaseRequestDto
 {
