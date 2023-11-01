@@ -49,6 +49,7 @@
     background-color: var(--fill-color);
     color: var(--neutral-foreground-rest);
     padding-left: calc(var(--design-unit) * 3px);
+    padding-top: 20px;
 }
 
     .navigation > ul {
@@ -78,6 +79,7 @@
     color: var(--neutral-foreground-rest);
     padding-inline-start: calc(var(--design-unit) * 6px);
     padding-inline-end: calc(var(--design-unit) * 6px);
+    padding-top: 10px;
 }
 
 
