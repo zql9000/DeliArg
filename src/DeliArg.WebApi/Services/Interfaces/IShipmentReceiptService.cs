@@ -1,4 +1,4 @@
-﻿using DeliArg.WebApi.Models;
+﻿using DeliArg.WebApi.Dtos;
 
 namespace DeliArg.WebApi.Services.Interfaces;
 
