@@ -1,7 +1,5 @@
 ﻿namespace DeliArg.Wasm.Dtos;
 
-namespace DeliArg.WebApi.Models;
-
 public class ShipmentReceiptItemRequestDto : BaseRequestDto
 {
     public int ShipmentReceiptId { get; set; }
