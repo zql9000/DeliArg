@@ -1,4 +1,4 @@
-﻿using DeliArg.WebApi.Models;
+﻿using DeliArg.WebApi.Dtos;
 using DeliArg.WebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,33 +1,33 @@
 ﻿@inject NavigationManager navigationmanager
 
-<h1 class="head">DeliArg</h1>
+<h3 class="head">Menu</h3>
 <ul>
     <li>
-        <FluentAnchor Href="Order" Appearance=@SetAppearance("Order")>Order</FluentAnchor>
+        <FluentAnchor Href="Orders" Appearance=@SetAppearance("Order")>Orders</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="ShipmentReceipt" Appearance=@SetAppearance("ShipmentReceipt")>Shipment Receipt</FluentAnchor>
+        <FluentAnchor Href="ShipmentReceipts" Appearance=@SetAppearance("ShipmentReceipt")>Shipment Receipts</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="StoreStock" Appearance=@SetAppearance("StoreStock")>Store Stock</FluentAnchor>
+        <FluentAnchor Href="StoreStocks" Appearance=@SetAppearance("StoreStock")>Store Stocks</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="Product" Appearance=@SetAppearance("Product")>Product</FluentAnchor>
+        <FluentAnchor Href="Products" Appearance=@SetAppearance("Product")>Products</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="Supplier" Appearance=@SetAppearance("Supplier")>Supplier</FluentAnchor>
+        <FluentAnchor Href="Suppliers" Appearance=@SetAppearance("Supplier")>Suppliers</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="Warehouse" Appearance=@SetAppearance("Warehouse")>Warehouse</FluentAnchor>
+        <FluentAnchor Href="Warehouses" Appearance=@SetAppearance("Warehouse")>Warehouses</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="Store" Appearance=@SetAppearance("Store")>Store</FluentAnchor>
+        <FluentAnchor Href="Stores" Appearance=@SetAppearance("Store")>Stores</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="OrderStatus" Appearance=@SetAppearance("OrderStatus")>Order Status</FluentAnchor>
+        <FluentAnchor Href="OrderStatuses" Appearance=@SetAppearance("OrderStatus")>Order Statuses</FluentAnchor>
     </li>
     <li>
-        <FluentAnchor Href="ShipmentReceiptStatus" Appearance=@SetAppearance("ShipmentReceiptStatus")>Shipment Receipt Status</FluentAnchor>
+        <FluentAnchor Href="ShipmentReceiptStatuses" Appearance=@SetAppearance("ShipmentReceiptStatus")>Shipment Receipt Statuses</FluentAnchor>
     </li>
 </ul>
 
@@ -50,6 +50,6 @@
         StateHasChanged();
     }
 
-    private Appearance SetAppearance(string location) => (string.Equals(location, target, StringComparison.OrdinalIgnoreCase)) ? Appearance.Neutral : Appearance.Stealth;
+    private Appearance SetAppearance(string location) => (target ?? string.Empty).StartsWith(location) ? Appearance.Neutral : Appearance.Stealth;
 
 }
