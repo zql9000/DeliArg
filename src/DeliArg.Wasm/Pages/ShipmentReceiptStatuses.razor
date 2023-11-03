@@ -1,7 +1,25 @@
 ﻿@page "/ShipmentReceiptStatuses"
+@using DeliArg.Wasm.Dtos;
 
-<h3>ShipmentReceiptStatuses</h3>
+<PageTitle>Shipment Receipt Statuses</PageTitle>
 
-@code {
+<h3>Shipment Receipt Statuses</h3>
 
+@if (shipmentReceiptStatuses == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <FluentGrid Justify="JustifyContent.FlexEnd">
+        <FluentGridItem xs="1">
+            <FluentAnchor Href="/ShipmentReceiptStatus" IconStart="new Icons.Regular.Size20.Add()">Add New</FluentAnchor>
+        </FluentGridItem>
+    </FluentGrid>
+    <FluentDataGrid Id="shipmentReceiptStatusesGrid" Items=@shipmentReceiptStatuses TGridItem=ShipmentReceiptStatusResponseDto GridTemplateColumns="1fr auto">
+        <PropertyColumn Title="Description" Property="@(s => s.Description)" Sortable="true" />
+        <TemplateColumn Title="Options">
+            <FluentAnchor Href="@($"/ShipmentReceiptStatus/{context.Id}")" IconStart="new Icons.Regular.Size20.Edit()" Appearance="Appearance.Stealth" />
+        </TemplateColumn>
+    </FluentDataGrid>
 }
