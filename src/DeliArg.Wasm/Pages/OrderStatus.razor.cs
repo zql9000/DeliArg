@@ -38,12 +38,12 @@ public partial class OrderStatus
 
         if (result == null || result.StatusCode != HttpStatusCode.Created)
         {
-            ToastService.ShowError("Error creating orderStatus.");
+            ToastService.ShowError("Error creating Order Status.");
             return;
         }
 
         NavManager.NavigateTo("/OrderStatuses");
-        ToastService.ShowSuccess("OrderStatus created.");
+        ToastService.ShowSuccess("Order Status created.");
     }
 
     private async Task Update()
@@ -52,12 +52,12 @@ public partial class OrderStatus
 
         if (result == null || result.StatusCode != HttpStatusCode.NoContent)
         {
-            ToastService.ShowError("Error updating orderStatus.");
+            ToastService.ShowError("Error updating Order Status.");
             return;
         }
 
         NavManager.NavigateTo("/OrderStatuses");
-        ToastService.ShowSuccess("OrderStatus updated.");
+        ToastService.ShowSuccess("Order Status updated.");
     }
 
     private async Task CancelUpdate()
@@ -72,11 +72,11 @@ public partial class OrderStatus
 
         if (result == null || result.StatusCode != HttpStatusCode.OK)
         {
-            ToastService.ShowError("Error deleting orderStatus.");
+            ToastService.ShowError("Error deleting Order Status.");
             return;
         }
 
         NavManager.NavigateTo("/OrderStatuses");
-        ToastService.ShowSuccess("OrderStatus deleted.");
+        ToastService.ShowSuccess("Order Status deleted.");
     }
 }

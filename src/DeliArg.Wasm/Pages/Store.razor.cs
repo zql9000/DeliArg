@@ -38,7 +38,7 @@ public partial class Store
 
         if (result == null || result.StatusCode != HttpStatusCode.Created)
         {
-            ToastService.ShowError("Error creating store.");
+            ToastService.ShowError("Error creating Store.");
             return;
         }
 
@@ -52,7 +52,7 @@ public partial class Store
 
         if (result == null || result.StatusCode != HttpStatusCode.NoContent)
         {
-            ToastService.ShowError("Error updating store.");
+            ToastService.ShowError("Error updating Store.");
             return;
         }
 
@@ -72,7 +72,7 @@ public partial class Store
 
         if (result == null || result.StatusCode != HttpStatusCode.OK)
         {
-            ToastService.ShowError("Error deleting store.");
+            ToastService.ShowError("Error deleting Store.");
             return;
         }
 
