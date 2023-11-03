@@ -1,7 +1,7 @@
 ﻿@page "/Stores"
 @using DeliArg.Wasm.Dtos;
 
-<PageTitle>Store</PageTitle>
+<PageTitle>Stores</PageTitle>
 
 <h3>Stores</h3>
 
@@ -16,7 +16,7 @@ else
             <FluentAnchor Href="/Store" IconStart="new Icons.Regular.Size20.Add()">Add New</FluentAnchor>
         </FluentGridItem>
     </FluentGrid>
-    <FluentDataGrid Id="storesGrid" Items=@stores TGridItem=StoreResponseDto GridTemplateColumns="5fr 5fr 1fr">
+    <FluentDataGrid Id="storesGrid" Items=@stores TGridItem=StoreResponseDto GridTemplateColumns="1fr 2fr auto">
         <PropertyColumn Title="Name" Property="@(s => s.Name)" Sortable="true" />
         <PropertyColumn Title="Address" Property="@(s => s.Address)" Sortable="true" />
         <TemplateColumn Title="Options">

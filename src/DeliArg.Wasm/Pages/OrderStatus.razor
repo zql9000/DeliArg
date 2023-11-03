@@ -1,8 +1,36 @@
 ﻿@page "/OrderStatus"
 @page "/OrderStatus/{OrderStatusId:int}"
+@using DeliArg.Wasm.Dtos;
 
-<h3>OrderStatus</h3>
+<PageTitle>Order Status</PageTitle>
 
-@code {
+<h3>Order Status</h3>
 
-}
+<FluentGrid>
+    <FluentGridItem xs="12" md="6" lg="4">
+        <FluentTextField @bind-Value="orderStatus.Description" Label="Description" Disabled="!editing" Style="width: 100%"></FluentTextField>
+    </FluentGridItem>
+</FluentGrid>
+<FluentGrid Justify="JustifyContent.FlexEnd">
+    <FluentGridItem xs="12" md="4" lg="2">
+        @if (OrderStatusId == 0)
+        {
+            <FluentButton Appearance="Appearance.Accent" OnClick="Create">Save</FluentButton>
+            <FluentAnchor Href="/OrderStatuses">Cancel</FluentAnchor>
+        }
+        else
+        {
+            if (editing)
+            {
+                <FluentButton Appearance="Appearance.Accent" OnClick="Update">Save</FluentButton>
+                <FluentButton OnClick="CancelUpdate">Cancel</FluentButton>
+            }
+            else
+            {
+                <FluentButton OnClick="() => editing = true">Edit</FluentButton>
+                <FluentAnchor Href="/OrderStatuses">Cancel</FluentAnchor>
+                <FluentButton BackgroundColor="Tomato" Color="White" OnClick="Delete">Delete</FluentButton>
+            }
+        }
+    </FluentGridItem>
+</FluentGrid>
