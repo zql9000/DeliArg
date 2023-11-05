@@ -1,7 +1,26 @@
 ﻿@page "/Warehouses"
+@using DeliArg.Wasm.Dtos;
+
+<PageTitle>Warehouses</PageTitle>
 
 <h3>Warehouses</h3>
 
-@code {
-
+@if (warehouses == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <FluentGrid Justify="JustifyContent.FlexEnd">
+        <FluentGridItem xs="1">
+            <FluentAnchor Href="/Warehouse" IconStart="new Icons.Regular.Size20.Add()">Add New</FluentAnchor>
+        </FluentGridItem>
+    </FluentGrid>
+    <FluentDataGrid Id="warehousesGrid" Items=@warehouses TGridItem=WarehouseResponseDto GridTemplateColumns="1fr 2fr auto">
+        <PropertyColumn Title="Name" Property="@(s => s.Name)" Sortable="true" />
+        <PropertyColumn Title="Address" Property="@(s => s.Address)" Sortable="true" />
+        <TemplateColumn Title="Options">
+            <FluentAnchor Href="@($"/Warehouse/{context.Id}")" IconStart="new Icons.Regular.Size20.Edit()" Appearance="Appearance.Stealth" />
+        </TemplateColumn>
+    </FluentDataGrid>
 }
