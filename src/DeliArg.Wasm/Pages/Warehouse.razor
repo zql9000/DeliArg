@@ -1,8 +1,39 @@
 ﻿@page "/Warehouse"
 @page "/Warehouse/{WarehouseId:int}"
+@using DeliArg.Wasm.Dtos;
+
+<PageTitle>Warehouse</PageTitle>
 
 <h3>Warehouse</h3>
 
-@code {
-
-}
+<FluentGrid>
+    <FluentGridItem xs="12" md="6" lg="4">
+        <FluentTextField @bind-Value="warehouse.Name" Label="Name" Disabled="!editing" Style="width: 100%"></FluentTextField>
+    </FluentGridItem>
+    <FluentGridItem xs="12" md="6" lg="4">
+        <FluentTextField @bind-Value="warehouse.Address" Label="Address" Disabled="!editing" Style="width: 100%"></FluentTextField>
+    </FluentGridItem>
+</FluentGrid>
+<FluentGrid Justify="JustifyContent.FlexEnd">
+    <FluentGridItem xs="12" md="4" lg="2">
+        @if (WarehouseId == 0)
+        {
+            <FluentButton Appearance="Appearance.Accent" OnClick="Create">Save</FluentButton>
+            <FluentAnchor Href="/Warehouses">Cancel</FluentAnchor>
+        }
+        else
+        {
+            if (editing)
+            {
+                <FluentButton Appearance="Appearance.Accent" OnClick="Update">Save</FluentButton>
+                <FluentButton OnClick="CancelUpdate">Cancel</FluentButton>
+            }
+            else
+            {
+                <FluentButton OnClick="() => editing = true">Edit</FluentButton>
+                <FluentAnchor Href="/Warehouses">Cancel</FluentAnchor>
+                <FluentButton BackgroundColor="Tomato" Color="White" OnClick="Delete">Delete</FluentButton>
+            }
+        }
+    </FluentGridItem>
+</FluentGrid>
