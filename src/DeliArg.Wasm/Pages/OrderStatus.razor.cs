@@ -1,4 +1,5 @@
 ﻿using DeliArg.Wasm.Dtos;
+using DeliArg.Wasm.Mapping;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Fast.Components.FluentUI;
 using System.Net;
@@ -34,7 +35,9 @@ public partial class OrderStatus
 
     private async Task Create()
     {
-        var result = await Http.PostAsJsonAsync("api/orderStatuses", orderStatus);
+        OrderStatusRequestDto newOrderStatus = orderStatus.ToRequest();
+
+        var result = await Http.PostAsJsonAsync("api/orderStatuses", newOrderStatus);
 
         if (result == null || result.StatusCode != HttpStatusCode.Created)
         {
@@ -48,7 +51,9 @@ public partial class OrderStatus
 
     private async Task Update()
     {
-        var result = await Http.PutAsJsonAsync($"api/orderStatuses/{OrderStatusId}", orderStatus);
+        OrderStatusRequestDto modifyOrderStatus = orderStatus.ToRequest();
+
+        var result = await Http.PutAsJsonAsync($"api/orderStatuses/{OrderStatusId}", modifyOrderStatus);
 
         if (result == null || result.StatusCode != HttpStatusCode.NoContent)
         {
