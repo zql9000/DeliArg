@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using DeliArg.Wasm.Dtos;
+using DeliArg.Wasm.Mapping;
+using Microsoft.AspNetCore.Components;
 using Microsoft.Fast.Components.FluentUI;
-using System.Net.Http.Json;
 using System.Net;
-using DeliArg.Wasm.Dtos;
+using System.Net.Http.Json;
 
 namespace DeliArg.Wasm.Pages;
 
@@ -34,7 +35,9 @@ public partial class Warehouse
 
     private async Task Create()
     {
-        var result = await Http.PostAsJsonAsync("api/warehouses", warehouse);
+        WarehouseRequestDto newWarehouse = warehouse.ToRequest();
+
+        var result = await Http.PostAsJsonAsync("api/warehouses", newWarehouse);
 
         if (result == null || result.StatusCode != HttpStatusCode.Created)
         {
@@ -48,7 +51,9 @@ public partial class Warehouse
 
     private async Task Update()
     {
-        var result = await Http.PutAsJsonAsync($"api/warehouses/{WarehouseId}", warehouse);
+        WarehouseRequestDto modifyWarehouse = warehouse.ToRequest();
+
+        var result = await Http.PutAsJsonAsync($"api/warehouses/{WarehouseId}", modifyWarehouse);
 
         if (result == null || result.StatusCode != HttpStatusCode.NoContent)
         {

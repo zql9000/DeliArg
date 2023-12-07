@@ -1,7 +1,28 @@
 ﻿@page "/StoreStocks"
+@using DeliArg.Wasm.Dtos;
 
-<h3>StoreStocks</h3>
+<PageTitle>Store Stocks</PageTitle>
 
-@code {
+<h3>Store Stocks</h3>
 
+@if (storeStocks == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <FluentGrid Justify="JustifyContent.FlexEnd">
+        <FluentGridItem xs="1">
+            <FluentAnchor Href="/StoreStock" IconStart="new Icons.Regular.Size20.Add()">Add New</FluentAnchor>
+        </FluentGridItem>
+    </FluentGrid>
+    <FluentDataGrid Id="storeStocksGrid" Items=@storeStocks TGridItem=StoreStockResponseDto GridTemplateColumns="5fr 5fr 1fr 1fr auto">
+        <PropertyColumn Title="Product" Property="@(s => s.Product.Name)" Sortable="true" />
+        <PropertyColumn Title="Store" Property="@(s => s.Store.Name)" Sortable="true" />
+            <PropertyColumn Title="Price" Property="@(s => s.Price)" Sortable="true" />
+        <PropertyColumn Title="Quantity" Property="@(s => s.Quantity)" Sortable="true" />
+        <TemplateColumn Title="Options">
+            <FluentAnchor Href="@($"/StoreStock/{context.Id}")" IconStart="new Icons.Regular.Size20.Edit()" Appearance="Appearance.Stealth" />
+        </TemplateColumn>
+    </FluentDataGrid>
 }

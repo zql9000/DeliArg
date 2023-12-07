@@ -1,4 +1,5 @@
 ﻿using DeliArg.Wasm.Dtos;
+using DeliArg.Wasm.Mapping;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Fast.Components.FluentUI;
 using System.Net;
@@ -34,7 +35,9 @@ public partial class ShipmentReceiptStatus
 
     private async Task Create()
     {
-        var result = await Http.PostAsJsonAsync("api/shipmentReceiptStatuses", shipmentReceiptStatus);
+        ShipmentReceiptStatusRequestDto newShipmentReceiptStatus = shipmentReceiptStatus.ToRequest();
+
+        var result = await Http.PostAsJsonAsync("api/shipmentReceiptStatuses", newShipmentReceiptStatus);
 
         if (result == null || result.StatusCode != HttpStatusCode.Created)
         {
@@ -48,7 +51,9 @@ public partial class ShipmentReceiptStatus
 
     private async Task Update()
     {
-        var result = await Http.PutAsJsonAsync($"api/shipmentReceiptStatuses/{ShipmentReceiptStatusId}", shipmentReceiptStatus);
+        ShipmentReceiptStatusRequestDto modifyShipmentReceiptStatus = shipmentReceiptStatus.ToRequest();
+
+        var result = await Http.PutAsJsonAsync($"api/shipmentReceiptStatuses/{ShipmentReceiptStatusId}", modifyShipmentReceiptStatus);
 
         if (result == null || result.StatusCode != HttpStatusCode.NoContent)
         {
