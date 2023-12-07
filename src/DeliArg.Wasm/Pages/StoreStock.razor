@@ -1,8 +1,85 @@
 ﻿@page "/StoreStock"
 @page "/StoreStock/{StoreStockId:int}"
+@using DeliArg.Wasm.Dtos;
+
+<PageTitle>StoreStock</PageTitle>
 
 <h3>StoreStock</h3>
 
-@code {
-
-}
+<FluentGrid>
+    <FluentGridItem xs="12" md="6" lg="4">
+        @if (editing)
+        {
+            <FluentSelect Label="Product"
+                          Items="products"
+                          TOption="ProductResponseDto"
+                          OptionValue="@(p => p.Id.ToString())"
+                          OptionText="@(p => p.Name)"
+                          @bind-SelectedOption="storeStock.Product"
+                          Style="width: 100%" />
+        }
+        else
+        {
+            <FluentTextField Label="Product"
+                             Disabled="true"
+                             Value="@storeStock.Product?.Name"
+                             Style="width: 100%" />
+        }
+    </FluentGridItem>
+    <FluentGridItem xs="12" md="6" lg="4">
+        @if (editing)
+        {
+            <FluentSelect Label="Store"
+                Items="stores"
+                TOption="StoreResponseDto"
+                OptionValue="@(p => p.Id.ToString())"
+                OptionText="@(p => p.Name)"
+                @bind-SelectedOption="storeStock.Store"
+                Style="width: 100%" />
+        }
+        else
+        {
+            <FluentTextField Label="Store"
+                Disabled="true"
+                Value="@storeStock.Store?.Name"
+                Style="width: 100%" />
+        }
+    </FluentGridItem>
+    <FluentGridItem xs="6" md="3" lg="2">
+        <FluentNumberField @bind-Value="storeStock.Price"
+            Label="Price"
+            Disabled="!editing"
+            Min="0"
+            Style="width: 100%" />
+    </FluentGridItem>
+    <FluentGridItem xs="6" md="3" lg="2">
+        <FluentNumberField @bind-Value="storeStock.Quantity"
+            Label="Quantity"
+            Disabled="!editing"
+            Min="0"
+            Style="width: 100%" />
+    </FluentGridItem>
+</FluentGrid>
+<FluentGrid Justify="JustifyContent.FlexEnd">
+    <FluentGridItem xs="12" md="4" lg="2">
+        @if (StoreStockId == 0)
+        {
+            <FluentButton Appearance="Appearance.Accent" OnClick="Create">Save</FluentButton>
+            <FluentAnchor Href="/StoreStocks">Cancel</FluentAnchor>
+        }
+        else
+        {
+            if (editing)
+            {
+                <FluentButton Appearance="Appearance.Accent" OnClick="Update">Save</FluentButton>
+                <FluentButton OnClick="CancelUpdate">Cancel</FluentButton>
+            }
+            else
+            {
+                <FluentButton OnClick="() => editing = true">Edit</FluentButton>
+                <FluentAnchor Href="/StoreStocks">Cancel</FluentAnchor>
+                <FluentButton BackgroundColor="Tomato" Color="White" OnClick="Delete">Delete</FluentButton>
+            }
+        }
+    </FluentGridItem>
+</FluentGrid>
