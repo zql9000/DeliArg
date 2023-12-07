@@ -48,6 +48,17 @@ public static class MappingExtension
         return result;
     }
 
+    public static SupplierRequestDto ToRequest(this SupplierResponseDto supplierResponseDto)
+    {
+        SupplierRequestDto result = new()
+        {
+            Name = supplierResponseDto.Name,
+            Address = supplierResponseDto.Address,
+        };
+
+        return result;
+    }
+    
     public static WarehouseRequestDto ToRequest(this WarehouseResponseDto warehouseResponseDto)
     {
         WarehouseRequestDto result = new()

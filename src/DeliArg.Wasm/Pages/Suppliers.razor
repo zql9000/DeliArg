@@ -1,7 +1,26 @@
 ﻿@page "/Suppliers"
+@using DeliArg.Wasm.Dtos;
+
+<PageTitle>Suppliers</PageTitle>
 
 <h3>Suppliers</h3>
 
-@code {
-
+@if (suppliers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <FluentGrid Justify="JustifyContent.FlexEnd">
+        <FluentGridItem xs="1">
+            <FluentAnchor Href="/Supplier" IconStart="new Icons.Regular.Size20.Add()">Add New</FluentAnchor>
+        </FluentGridItem>
+    </FluentGrid>
+    <FluentDataGrid Id="suppliersGrid" Items=@suppliers TGridItem=SupplierResponseDto GridTemplateColumns="1fr 2fr auto">
+        <PropertyColumn Title="Name" Property="@(s => s.Name)" Sortable="true" />
+        <PropertyColumn Title="Address" Property="@(s => s.Address)" Sortable="true" />
+        <TemplateColumn Title="Options">
+            <FluentAnchor Href="@($"/Supplier/{context.Id}")" IconStart="new Icons.Regular.Size20.Edit()" Appearance="Appearance.Stealth" />
+        </TemplateColumn>
+    </FluentDataGrid>
 }

@@ -1,8 +1,39 @@
 ﻿@page "/Supplier"
 @page "/Supplier/{SupplierId:int}"
+@using DeliArg.Wasm.Dtos;
+
+<PageTitle>Supplier</PageTitle>
 
 <h3>Supplier</h3>
 
-@code {
-
-}
+<FluentGrid>
+    <FluentGridItem xs="12" md="6" lg="4">
+        <FluentTextField @bind-Value="supplier.Name" Label="Name" Disabled="!editing" Style="width: 100%"></FluentTextField>
+    </FluentGridItem>
+    <FluentGridItem xs="12" md="6" lg="4">
+        <FluentTextField @bind-Value="supplier.Address" Label="Address" Disabled="!editing" Style="width: 100%"></FluentTextField>
+    </FluentGridItem>
+</FluentGrid>
+<FluentGrid Justify="JustifyContent.FlexEnd">
+    <FluentGridItem xs="12" md="4" lg="2">
+        @if (SupplierId == 0)
+        {
+            <FluentButton Appearance="Appearance.Accent" OnClick="Create">Save</FluentButton>
+            <FluentAnchor Href="/Suppliers">Cancel</FluentAnchor>
+        }
+        else
+        {
+            if (editing)
+            {
+                <FluentButton Appearance="Appearance.Accent" OnClick="Update">Save</FluentButton>
+                <FluentButton OnClick="CancelUpdate">Cancel</FluentButton>
+            }
+            else
+            {
+                <FluentButton OnClick="() => editing = true">Edit</FluentButton>
+                <FluentAnchor Href="/Suppliers">Cancel</FluentAnchor>
+                <FluentButton BackgroundColor="Tomato" Color="White" OnClick="Delete">Delete</FluentButton>
+            }
+        }
+    </FluentGridItem>
+</FluentGrid>
