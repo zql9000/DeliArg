@@ -16,6 +16,7 @@ public class DeliArgDbContext : DbContext
     public DbSet<StoreStock> StoreStocks { get; set; }
     public DbSet<ShipmentReceipt> ShipmentReceipts { get; set; }
     public DbSet<Order> Orders { get; set; }
+    public DbSet<ProductSupplier> ProductSuppliers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -33,6 +34,9 @@ public class DeliArgDbContext : DbContext
         modelBuilder.Entity<Order>().Navigation(e => e.OrderStatus).AutoInclude();
         modelBuilder.Entity<Order>().Navigation(e => e.OrderItems).AutoInclude();
         modelBuilder.Entity<OrderItem>().Navigation(e => e.Product).AutoInclude();
+
+        modelBuilder.Entity<ProductSupplier>().Navigation(e => e.Product).AutoInclude();
+        modelBuilder.Entity<ProductSupplier>().Navigation(e => e.Supplier).AutoInclude();
 
         base.OnModelCreating(modelBuilder);
     }
